@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scroll Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img  width="100px"  src="left-arrow.png" alt="back" id="backbtn">
+        <div class="gallery">
+            <div>
+                <span><img src="bird-8788491_1280.jpg" alt="bird"></span>
+                <span><img src="boatman-punting-boat-river-arashiyama-autumn-season-along-river-kyoto-japan_335224-56.jpg" alt="boat"></span>
+                <span><img src="butterfly-orange-gerbera-flower_23-2150636365.avif" alt="butterfly"></span>
+            </div> 
+            <div>
+                <span><img src="cascade-boat-clean-china-natural-rural_1417-1356.avif" alt="casecade"></span>
+                <span><img src="road-1072823_1280.jpg" alt="road"></span>
+                <span><img src="sunset-8544672_1280.jpg" alt="sunset"></span>
+            </div>
+            </div>
+            <img  width="100px" src="right-arrow.png" alt="next" id="nextbtn">
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let scrollcontainer = document.querySelector(".gallery");
+        let backbtn = document.getElementById("backbtn");
+        let nextbtn = document.getElementById("nextbtn");
+
+        scrollcontainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollcontainer.scrollBy({
+                left: evt.deltaY,
+                behavior: 'auto'
+            });
+        });
+
+        backbtn.addEventListener("click", () => {
+            scrollcontainer.scrollBy({
+                left: -900,
+                behavior: 'smooth'
+            });
+        });
+
+        nextbtn.addEventListener("click", () => {
+            scrollcontainer.scrollBy({
+                left: 900,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<script>
+backbtn.addEventListener("click", () => {
+console.log("Back button clicked");
+scrollcontainer.scrollBy({
+    left: -900,
+    behavior: 'smooth'
+});
+});
+
+nextbtn.addEventListener("click", () => {
+console.log("Next button clicked");
+scrollcontainer.scrollBy({
+    left: 900,
+    behavior: 'smooth'
+});
+});
+</script> 
+</body>
+</html>
